@@ -1,0 +1,26 @@
+<div class="container">
+  
+  <!-- Complete this markup for showing error upon unsuccessful login. -->
+  <p *ngIf="!authService.authenticated && incorrect" class="error">
+    Login credentials were incorrect!
+  </p>
+  
+  <!-- Complete this markup for showing the status bar correctly, depending on whether or not the user is authenticated. -->
+  <div class="status">
+    <span>User ID: {{ authService.authenticated ? authService.user.name : 'N/A' }}</span>
+    <button class="btn btn-info" (click)="testApi()">Test API</button>
+    <button *ngIf="authService.authenticated" class="btn btn-warning" (click)="logout()">Logout</button>
+  </div>
+
+  <div *ngIf="!authService.authenticated">
+    <form #form="ngForm" class="form-group">
+      <label for="username">Username</label>
+        <input class="form-control" type="text" name="username" placeholder="username"
+         required minlength="3" [(ngModel)]="userCredentials.username">
+      <label for="password">Password</label>  
+       <input class="form-control" type="text" name="password" placeholder="password"
+        required minlength="8" [(ngModel)]="userCredentials.password" > <br>
+       <button type="submit" (click)="login($event); form.reset()" class="btn btn-info" [disabled]="!form.form.valid">Login</button>
+      </form>
+     </div> 
+</div>
