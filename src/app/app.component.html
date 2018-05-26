@@ -1,11 +1,9 @@
 <div class="container">
   
-  <!-- Complete this markup for showing error upon unsuccessful login. -->
   <p *ngIf="!authService.authenticated && incorrect" class="error">
     Login credentials were incorrect!
   </p>
   
-  <!-- Complete this markup for showing the status bar correctly, depending on whether or not the user is authenticated. -->
   <div class="status">
     <span>User ID: {{ authService.authenticated ? authService.user.name : 'N/A' }}</span>
     <button class="btn btn-info" (click)="testApi()">Test API</button>

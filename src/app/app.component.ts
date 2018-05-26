@@ -35,9 +35,6 @@ export class AppComponent {
   }
 
   testApi() {
-    // test API access by invoking getResource on authService.
-
-    // console.error('something, something, horribly wrong!');
     const success = (response) => {
       console.log(response);
     };
